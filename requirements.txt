@@ -1,0 +1,13 @@
+# Mirror of wp4-onboarding/requirements.txt + production extras.
+# Pin exactly — bump deliberately. Generate hashes with:
+#   pip-compile --generate-hashes requirements.in -o requirements.txt
+# (and switch to `pip install --require-hashes` in the Dockerfile)
+
+Django==5.2.6
+dj-database-url==2.3.0
+django-extensions==4.1
+psycopg[binary]==3.2.10
+whitenoise==6.11.0
+
+# Production extras (not required for `runserver` dev)
+sentry-sdk==2.38.0
