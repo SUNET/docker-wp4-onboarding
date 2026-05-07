@@ -3,7 +3,7 @@
 #   pip-compile --generate-hashes requirements.in -o requirements.txt
 # (and switch to `pip install --require-hashes` in the Dockerfile)
 
-Django==5.2.6
+Django==5.2.13
 dj-database-url==2.3.0
 django-extensions==4.1
 psycopg[binary]==3.2.10
