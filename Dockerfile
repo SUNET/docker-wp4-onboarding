@@ -66,9 +66,8 @@ RUN mkdir -p /var/www/static /var/www/media /mnt/logs /app/data /run \
 # Bring over the venv from the builder.
 COPY --from=builder /opt/venv /opt/venv
 
-# Bring over the app source (just the lote_registry package + manage.py).
-# Adjust paths if the upstream repo layout differs.
-COPY --from=builder /tmp/wp4-onboarding/wp4-onboarding/ /app/
+# Bring over the app source (lote_registry package + manage.py at repo root).
+COPY --from=builder /tmp/wp4-onboarding/ /app/
 WORKDIR /app
 
 # uWSGI config and entrypoint script — controlled from this repo.
