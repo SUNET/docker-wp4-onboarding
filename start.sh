@@ -9,12 +9,14 @@ echo "Starting WP4Trust Onboarding..."
 UWSGI_INI=${UWSGI_INI:-/etc/uwsgi/app.ini}
 RUN_MIGRATIONS=${RUN_MIGRATIONS:-true}
 COLLECT_STATIC=${COLLECT_STATIC:-true}
+RUN_SEED=${RUN_SEED:-false}
 DB_WAIT_TIMEOUT=${DB_WAIT_TIMEOUT:-60}     # seconds; exit non-zero past this
 
 echo "Configuration:"
 echo "  uWSGI Config:    ${UWSGI_INI}"
 echo "  Run Migrations:  ${RUN_MIGRATIONS}"
 echo "  Collect Static:  ${COLLECT_STATIC}"
+echo "  Run Seed:        ${RUN_SEED}"
 echo "  DB Wait Timeout: ${DB_WAIT_TIMEOUT}s"
 echo ""
 
@@ -40,6 +42,11 @@ fi
 if [ "${COLLECT_STATIC}" = "true" ]; then
     echo "Collecting static files..."
     python manage.py collectstatic --noinput
+fi
+
+if [ "${RUN_SEED}" = "true" ]; then
+    echo "Seeding demo data..."
+    python manage.py seed_demo
 fi
 
 echo "---"
