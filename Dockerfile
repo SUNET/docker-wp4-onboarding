@@ -49,8 +49,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     DJANGO_SETTINGS_MODULE=lote_registry.settings
 
 # Runtime-only system deps: postgres client (psycopg) + tini for clean signals.
+# libexpat1 is required by pyuwsgi at runtime.
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libpq5 \
+    libexpat1 \
     tini \
     curl \
     && rm -rf /var/lib/apt/lists/*
