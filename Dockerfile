@@ -34,7 +34,8 @@ RUN pip install --upgrade "pip>=26.2.2" wheel \
 
 # Public app repo — no auth needed.
 ARG WP4_ONBOARDING_REPO=https://github.com/AniaAlex/wp4-onboarding.git
-ARG WP4_ONBOARDING_VERSION=main
+#ARG WP4_ONBOARDING_VERSION=main
+ARG WP4_ONBOARDING_VERSION=1c292bae9482e0f8030d7b3a9772c83311d59224
 
 RUN git clone "${WP4_ONBOARDING_REPO}" /tmp/wp4-onboarding \
     && git -C /tmp/wp4-onboarding checkout "${WP4_ONBOARDING_VERSION}"
