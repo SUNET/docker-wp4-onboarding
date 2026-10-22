@@ -28,7 +28,7 @@ RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 COPY requirements.txt /tmp/requirements.txt
-RUN pip install --upgrade pip wheel \
+RUN pip install --upgrade "pip>=26.2.2" wheel \
     && pip install -r /tmp/requirements.txt \
     && pip install --no-binary pyuwsgi pyuwsgi
 
